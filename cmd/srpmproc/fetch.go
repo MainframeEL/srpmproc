@@ -23,7 +23,7 @@ package main
 import (
 	"errors"
 	"fmt"
-	"github.com/rocky-linux/srpmproc/internal/data"
+	"github.com/SunOS-Linux/srpmproc/internal/data"
 	"github.com/spf13/cobra"
 	"io/ioutil"
 	"log"
