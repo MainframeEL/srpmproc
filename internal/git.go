@@ -36,7 +36,7 @@ import (
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/plumbing/object"
 	"github.com/go-git/go-git/v5/storage/memory"
-	"github.com/rocky-linux/srpmproc/internal/data"
+	"github.com/SunOS-Linux/srpmproc/internal/data"
 )
 
 type remoteTarget struct {
