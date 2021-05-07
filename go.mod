@@ -11,7 +11,7 @@ require (
 	github.com/go-git/go-billy/v5 v5.0.0
 	github.com/go-git/go-git/v5 v5.2.0
 	github.com/golang/protobuf v1.4.2
-	github.com/rocky-linux/srpmproc v0.0.0-20210428084135-4c689576dc21
+	github.com/SunOS-Linux/srpmproc v0.0.0-20210428084135-4c689576dc21
 	github.com/spf13/cobra v1.1.1
 	google.golang.org/protobuf v1.25.0
 	gopkg.in/yaml.v2 v2.2.8
