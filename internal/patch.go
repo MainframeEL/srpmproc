@@ -33,19 +33,19 @@ import (
 	"github.com/go-git/go-git/v5/config"
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/storage/memory"
-	"github.com/rocky-linux/srpmproc/internal/data"
-	"github.com/rocky-linux/srpmproc/internal/directives"
-	"github.com/rocky-linux/srpmproc/modulemd"
-	srpmprocpb "github.com/rocky-linux/srpmproc/pb"
+	"github.com/SunOS-Linux/srpmproc/internal/data"
+	"github.com/SunOS-Linux/srpmproc/internal/directives"
+	"github.com/SunOS-Linux/srpmproc/modulemd"
+	srpmprocpb "github.com/SunOS-Linux/srpmproc/pb"
 	"google.golang.org/protobuf/encoding/prototext"
 )
 
 func cfgPatches(pd *data.ProcessData, md *data.ModeData, patchTree *git.Worktree, pushTree *git.Worktree) {
 	// check CFG patches
-	_, err := patchTree.Filesystem.Stat("ROCKY/CFG")
+	_, err := patchTree.Filesystem.Stat("SUN/CFG")
 	if err == nil {
 		// iterate through patches
-		infos, err := patchTree.Filesystem.ReadDir("ROCKY/CFG")
+		infos, err := patchTree.Filesystem.ReadDir("SUN/CFG")
 		if err != nil {
 			log.Fatalf("could not walk patches: %v", err)
 		}
@@ -80,7 +80,7 @@ func cfgPatches(pd *data.ProcessData, md *data.ModeData, patchTree *git.Worktree
 
 func applyPatches(pd *data.ProcessData, md *data.ModeData, patchTree *git.Worktree, pushTree *git.Worktree) {
 	// check if patches exist
-	_, err := patchTree.Filesystem.Stat("ROCKY")
+	_, err := patchTree.Filesystem.Stat("SUN")
 	if err == nil {
 		cfgPatches(pd, md, patchTree, pushTree)
 	}

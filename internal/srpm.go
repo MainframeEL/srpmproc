@@ -37,7 +37,7 @@ import (
 	"github.com/go-git/go-billy/v5/memfs"
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/storage/memory"
-	"github.com/rocky-linux/srpmproc/internal/data"
+	"github.com/SunOS-Linux/srpmproc/internal/data"
 )
 
 type SrpmMode struct{}

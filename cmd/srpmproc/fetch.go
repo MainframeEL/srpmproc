@@ -38,7 +38,7 @@ var fetch = &cobra.Command{
 	Run: runFetch,
 }
 
-var cdnUrl string
+var cdnURL string
 
 func init() {
 	fetch.Flags().StringVar(&cdnUrl, "cdn-url", "", "Path to CDN")
