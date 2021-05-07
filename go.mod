@@ -7,6 +7,7 @@ require (
 	github.com/Microsoft/go-winio v0.5.0 // indirect
 	github.com/aws/aws-sdk-go v1.38.36
 	github.com/bluekeyes/go-gitdiff v0.5.1
+	github.com/cavaliercoder/badio v0.0.0-20160213150051-ce5280129e9e // indirect
 	github.com/cavaliercoder/go-cpio v0.0.0-20180626203310-925f9528c45e
 	github.com/cavaliercoder/go-rpm v0.0.0-20200122174316-8cb9fd9c31a8
 	github.com/go-git/go-billy/v5 v5.3.1
