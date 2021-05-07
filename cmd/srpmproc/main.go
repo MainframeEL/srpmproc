@@ -167,7 +167,7 @@ func mn(_ *cobra.Command, _ []string) {
 		NoStorageDownload:    noStorageDownload,
 		NoStorageUpload:      noStorageUpload,
 		ManualCommits:        manualCs,
-		UpstreamPrefixHttps:  upstreamPrefixHttps,
+		UpstreamPrefixHTTPS:  upstreamPrefixHTTPS,
 		ModuleFallbackStream: moduleFallbackStream,
 		AllowStreamBranches:  allowStreamBranches,
 		FsCreator:            fsCreator,

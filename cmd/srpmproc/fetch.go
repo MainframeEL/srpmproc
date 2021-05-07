@@ -90,7 +90,7 @@ func runFetch(_ *cobra.Command, _ []string) {
 		hash := lineInfo[0]
 		path := lineInfo[1]
 
-		url := fmt.Sprintf("%s/%s", cdnUrl, hash)
+		url := fmt.Sprintf("%s/%s", cdnURL, hash)
 		log.Printf("downloading %s", url)
 
 		req, err := http.NewRequest("GET", url, nil)
