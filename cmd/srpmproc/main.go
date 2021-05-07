@@ -199,7 +199,6 @@ func main() {
 	root.Flags().BoolVar(&noStorageDownload, "no-storage-download", false, "If enabled, blobs are always downloaded from upstream")
 	root.Flags().BoolVar(&noStorageUpload, "no-storage-upload", false, "If enabled, blobs are not uploaded to blob storage")
 	root.Flags().StringVar(&manualCommits, "manual-commits", "", "Comma separated branch and commit list for packages with broken release tags (Format: BRANCH:HASH)")
-	root.Flags().StringVar(&upstreamPrefixHttps, "upstream-prefix-https", "", "Web version of upstream prefix. Required if module-mode")
 	root.Flags().StringVar(&moduleFallbackStream, "module-fallback-stream", "", "Override fallback stream. Some module packages are published as collections and mostly use the same stream name, some of them deviate from the main stream")
 	root.Flags().BoolVar(&allowStreamBranches, "allow-stream-branches", false, "Allow import from stream branches")
 

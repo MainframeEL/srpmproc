@@ -33,8 +33,8 @@ import (
 	"time"
 
 	"github.com/go-git/go-git/v5"
-	"github.com/rocky-linux/srpmproc/internal/data"
-	srpmprocpb "github.com/rocky-linux/srpmproc/pb"
+	"github.com/SunOS-Linux/srpmproc/internal/data"
+	srpmprocpb "github.com/SunOS-Linux/srpmproc/pb"
 )
 
 func lookaside(cfg *srpmprocpb.Cfg, _ *data.ProcessData, md *data.ModeData, patchTree *git.Worktree, pushTree *git.Worktree) error {

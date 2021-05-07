@@ -41,7 +41,7 @@ var fetch = &cobra.Command{
 var cdnURL string
 
 func init() {
-	fetch.Flags().StringVar(&cdnUrl, "cdn-url", "", "Path to CDN")
+	fetch.Flags().StringVar(&cdnURL, "cdn-url", "", "Path to CDN")
 	_ = fetch.MarkFlagRequired("cdn-url")
 }
 
