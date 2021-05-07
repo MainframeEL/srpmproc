@@ -73,7 +73,7 @@ func cfgPatches(pd *data.ProcessData, md *data.ModeData, patchTree *git.Worktree
 				log.Fatalf("could not unmarshal cfg file: %v", err)
 			}
 
-			directives.Apply(&cfg, pd, md, patchTree, pushTree)
+			directives.Apply(x0, pd, md, patchTree, pushTree)
 		}
 	}
 }
