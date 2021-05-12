@@ -38,7 +38,7 @@ import (
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/plumbing/object"
 	"github.com/go-git/go-git/v5/storage/memory"
-	"github.com/SunOS-Linux/srpmproc/internal/data"
+	"github.com/MainframeEL/srpmproc/internal/data"
 )
 
 var tagImportRegex *regexp.Regexp
@@ -85,12 +85,12 @@ func ProcessRPM(pd *data.ProcessData) {
 		if err != nil {
 			log.Fatalf("could not init git repo: %v", err)
 		}
-		remoteUrl := fmt.Sprintf("%s/%s/%s.git", pd.UpstreamPrefix, remotePrefix, gitlabify(md.RpmFile.Name()))
+		remoteURL := fmt.Sprintf("%s/%s/%s.git", pd.UpstreamPrefix, remotePrefix, gitlabify(md.RpmFile.Name()))
 		refspec := config.RefSpec("+refs/heads/*:refs/remotes/origin/*")
 
 		remote, err := repo.CreateRemote(&config.RemoteConfig{
 			Name:  "origin",
-			URLs:  []string{remoteUrl},
+			URLs:  []string{remoteURL},
 			Fetch: []config.RefSpec{refspec},
 		})
 		if err != nil {
@@ -190,14 +190,14 @@ func ProcessRPM(pd *data.ProcessData) {
 		}
 
 		// create a new remote
-		remoteUrl := fmt.Sprintf("%s/%s/%s.git", pd.UpstreamPrefix, remotePrefix, gitlabify(rpmFile.Name()))
-		log.Printf("using remote: %s", remoteUrl)
+		remoteURL := fmt.Sprintf("%s/%s/%s.git", pd.UpstreamPrefix, remotePrefix, gitlabify(rpmFile.Name()))
+		log.Printf("using remote: %s", remoteURL)
 		refspec := config.RefSpec(fmt.Sprintf("+refs/heads/%s:refs/remotes/origin/%s", md.PushBranch, md.PushBranch))
 		log.Printf("using refspec: %s", refspec)
 
 		_, err = repo.CreateRemote(&config.RemoteConfig{
 			Name:  "origin",
-			URLs:  []string{remoteUrl},
+			URLs:  []string{remoteURL},
 			Fetch: []config.RefSpec{refspec},
 		})
 		if err != nil {

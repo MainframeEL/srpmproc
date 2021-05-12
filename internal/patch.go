@@ -33,19 +33,19 @@ import (
 	"github.com/go-git/go-git/v5/config"
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/storage/memory"
-	"github.com/SunOS-Linux/srpmproc/internal/data"
-	"github.com/SunOS-Linux/srpmproc/internal/directives"
-	"github.com/SunOS-Linux/srpmproc/modulemd"
-	srpmprocpb "github.com/SunOS-Linux/srpmproc/pb"
+	"github.com/MainframeEL/srpmproc/internal/data"
+	"github.com/MainframeEL/srpmproc/internal/directives"
+	"github.com/MainframeEL/srpmproc/modulemd"
+	srpmprocpb "github.com/MainframeEL/srpmproc/pb"
 	"google.golang.org/protobuf/encoding/prototext"
 )
 
 func cfgPatches(pd *data.ProcessData, md *data.ModeData, patchTree *git.Worktree, pushTree *git.Worktree) {
 	// check CFG patches
-	_, err := patchTree.Filesystem.Stat("SUN/CFG")
+	_, err := patchTree.Filesystem.Stat("MEL/CFG")
 	if err == nil {
 		// iterate through patches
-		infos, err := patchTree.Filesystem.ReadDir("SUN/CFG")
+		infos, err := patchTree.Filesystem.ReadDir("MEL/CFG")
 		if err != nil {
 			log.Fatalf("could not walk patches: %v", err)
 		}
@@ -57,7 +57,7 @@ func cfgPatches(pd *data.ProcessData, md *data.ModeData, patchTree *git.Worktree
 			}
 
 			log.Printf("applying directive %s", info.Name())
-			filePath := filepath.Join("ROCKY/CFG", info.Name())
+			filePath := filepath.Join("MEL/CFG", info.Name())
 			directive, err := patchTree.Filesystem.Open(filePath)
 			if err != nil {
 				log.Fatalf("could not open directive file %s: %v", info.Name(), err)
@@ -80,7 +80,7 @@ func cfgPatches(pd *data.ProcessData, md *data.ModeData, patchTree *git.Worktree
 
 func applyPatches(pd *data.ProcessData, md *data.ModeData, patchTree *git.Worktree, pushTree *git.Worktree) {
 	// check if patches exist
-	_, err := patchTree.Filesystem.Stat("SUN")
+	_, err := patchTree.Filesystem.Stat("MEL")
 	if err == nil {
 		cfgPatches(pd, md, patchTree, pushTree)
 	}
@@ -97,12 +97,12 @@ func executePatchesRpm(pd *data.ProcessData, md *data.ModeData) {
 		log.Fatalf("could not get dist Worktree: %v", err)
 	}
 
-	remoteUrl := fmt.Sprintf("%s/patch/%s.git", pd.UpstreamPrefix, gitlabify(md.RpmFile.Name()))
+	remoteURL := fmt.Sprintf("%s/patch/%s.git", pd.UpstreamPrefix, gitlabify(md.RpmFile.Name()))
 	refspec := config.RefSpec(fmt.Sprintf("+refs/heads/*:refs/remotes/origin/*"))
 
 	_, err = repo.CreateRemote(&config.RemoteConfig{
 		Name:  "origin",
-		URLs:  []string{remoteUrl},
+		URLs:  []string{remoteURL},
 		Fetch: []config.RefSpec{refspec},
 	})
 	if err != nil {
@@ -156,11 +156,11 @@ func getTipStream(pd *data.ProcessData, module string, pushBranch string, origPu
 		log.Fatalf("could not init git Repo: %v", err)
 	}
 
-	remoteUrl := fmt.Sprintf("%s/rpms/%s.git", pd.UpstreamPrefix, gitlabify(module))
+	remoteURL := fmt.Sprintf("%s/rpms/%s.git", pd.UpstreamPrefix, gitlabify(module))
 	refspec := config.RefSpec("+refs/heads/*:refs/remotes/origin/*")
 	remote, err := repo.CreateRemote(&config.RemoteConfig{
 		Name:  "origin",
-		URLs:  []string{remoteUrl},
+		URLs:  []string{remoteURL},
 		Fetch: []config.RefSpec{refspec},
 	})
 	if err != nil {

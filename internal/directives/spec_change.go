@@ -33,8 +33,8 @@ import (
 	"time"
 
 	"github.com/go-git/go-git/v5"
-	"github.com/SunOS-Linux/srpmproc/internal/data"
-	srpmprocpb "github.com/SunOS-Linux/srpmproc/pb"
+	"github.com/MainframeEL/srpmproc/internal/data"
+	srpmprocpb "github.com/MainframeEL/srpmproc/pb"
 )
 
 const (

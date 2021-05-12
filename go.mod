@@ -1,4 +1,4 @@
-module github.com/SunOS-Linux/srpmproc
+module github.com/MainframeEL/srpmproc
 
 go 1.15
 
