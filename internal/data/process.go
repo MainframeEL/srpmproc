@@ -23,7 +23,7 @@ package data
 import (
 	"github.com/go-git/go-billy/v5"
 	"github.com/go-git/go-git/v5/plumbing/transport/ssh"
-	"github.com/SunOS-Linux/srpmproc/internal/blob"
+	"github.com/MainframeEL/srpmproc/internal/blob"
 )
 
 type ProcessData struct {

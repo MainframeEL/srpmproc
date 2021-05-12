@@ -27,8 +27,8 @@ import (
 	"os"
 
 	"github.com/go-git/go-git/v5"
-	"github.com/SunOS-Linux/srpmproc/internal/data"
-	srpmprocpb "github.com/SunOS-Linux/srpmproc/pb"
+	"github.com/MainframeEL/srpmproc/internal/data"
+	srpmprocpb "github.com/MainframeEL/srpmproc/pb"
 )
 
 func replace(cfg *srpmprocpb.Cfg, pd *data.ProcessData, _ *data.ModeData, patchTree *git.Worktree, pushTree *git.Worktree) error {

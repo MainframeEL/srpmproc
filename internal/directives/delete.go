@@ -25,8 +25,8 @@ import (
 	"fmt"
 
 	"github.com/go-git/go-git/v5"
-	"github.com/SunOS-Linux/srpmproc/internal/data"
-	srpmprocpb "github.com/SunOS-Linux/srpmproc/pb"
+	"github.com/MainframeEL/srpmproc/internal/data"
+	srpmprocpb "github.com/MainframeEL/srpmproc/pb"
 )
 
 func del(cfg *srpmprocpb.Cfg, _ *data.ProcessData, _ *data.ModeData, _ *git.Worktree, pushTree *git.Worktree) error {
